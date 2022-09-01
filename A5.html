@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-left: 0px;
+                }
+        .body{
+            background-color:rgb(179, 179, 113);
+        }
+        .header{
+            text-align: center;
+            padding-left: 20px;
+            padding-top: 5px;
+        }
+        #title{
+            text-align: center;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+        .bodycontent{
+            background-color:rgb(220, 220, 161);
+            padding-top:20px;
+            padding-left: 10px;
+            padding-bottom: 20px;
+            margin-left: 10px;
+            
+        }
+        .class1{
+            font-size: 20px;
+        }
+        .class2{
+          padding-left: 30px;
+          padding-top: 20px;
+          font-family: 'Courier New';
+          font-size: 15px;
+        }
+    </style>
+</head>
+<body >
+    <div class="body">
+    <div class="header">
+        <div id="title">Using File Versioninfo</div>
+    </div>
+    <div class="bodycontent">
+      <div class="class1">Getting the version number of any managed / unmanaged DLL or executable in .NET 1.0. if I recall correctly, required some magic incantations with Pinvoke.
+       <br><br> I just discovered the File Versioninfo class from System.Diagnostics:</div>
+       <div class="class2">
+        FileVersionInfo versionInfo;<br>
+        versionInfo = FilVersionInfo.GetversionInfo(@"e:\win2003\system32\svchost.exe");<br>
+        MessageBox.Show(versionInfo.ToString());
+       <br><br>
+       </div>
+	
+<div class="class1">To use the class then, all you need to do is:</div>
+<ol style="font-style: italic;">
+    <li>Invoke the stabic GetVersionInfo method</li> 
+	<li>Start using the properties of the resulting object</li>
+
+</ol>
+	
+File version is a 64 bit number.
+<ul>
+   <li>The first 16 bits are the major number</li>  
+<li>The next 16 bits are the minor number</li> 
+<li>The third set of 16 bits are the build number</li>
+<li>The last 16 bits are the private build number</li>
+</ul>
+    </div>
+    <h3 style="margin-top:0; margin-left:6px;">(c) 2005 Copyright notice</h3>
+</div>
+</body>
+</html>
